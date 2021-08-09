@@ -10,7 +10,7 @@ function App() {
 
     return (
       <>
-          <h2>Events</h2>
+          <h2>節慶</h2>
           <EventContext.Provider value={{data, setData,viewFilter , setViewFilter}}>
           <Routers />
           </EventContext.Provider>
