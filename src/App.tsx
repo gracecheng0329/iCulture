@@ -6,11 +6,12 @@ import './App.scss';
 
 function App() {
     const [data, setData] = useState([])
+    const [viewFilter , setViewFilter] = useState([])
 
     return (
       <>
           <h2>Events</h2>
-          <EventContext.Provider value={{data, setData}}>
+          <EventContext.Provider value={{data, setData,viewFilter , setViewFilter}}>
           <Routers />
           </EventContext.Provider>
       </>

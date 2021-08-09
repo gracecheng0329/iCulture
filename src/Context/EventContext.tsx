@@ -2,12 +2,16 @@ import { createContext,useContext  } from 'react';
 
 type Event = {
     data:object[]
-    setData:(data3: any) => void
+    setData:(c: any) => void
+    viewFilter:object[]
+    setViewFilter:(c: any) => void
 }
 
 export const EventContext = createContext<Event>({
     data: [],
     setData:() => {},
+    viewFilter: [],
+    setViewFilter:() => {},
 })
 
 

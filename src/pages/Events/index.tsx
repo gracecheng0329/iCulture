@@ -7,12 +7,12 @@ import {Card} from "antd";
 const { Meta } = Card;
 
 function Events (){
-    const {data,setData} = useEventContext()
-    // const [data, setData] = useState([])
+    const {setData,viewFilter,setViewFilter} = useEventContext()
 
     useEffect(()=>{
         getEventDetails().then((item:any)=>{
             setData(item)
+            setViewFilter(item)
         })
     },[])
 
@@ -21,10 +21,9 @@ function Events (){
         <>
             <Filter/>
             <div className='container'>
-            {data.map((item:any,index:number)=> {
-                return (
-                        <EventItem item={item} key={item.actId}/>
-                )
+            {viewFilter.map((item:any,index:number)=> {
+                return <EventItem item={item} key={item.actId}/>
+
                 }
             )}
             </div>

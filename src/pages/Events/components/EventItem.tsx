@@ -4,7 +4,7 @@ import Moment from 'react-moment';
 import {Link} from 'react-router-dom'
 function EventItem (props:any) {
     const {item} = props
-    const {actName,cityName,startTime,endTime,imageUrl} = item
+    const {actName,address,startTime,endTime,imageUrl} = item
     return (
         <>
             <Link to=''>
@@ -14,7 +14,7 @@ function EventItem (props:any) {
                     cover={<img alt="example" src={`https://cloud.culture.tw${imageUrl}`} className='img'/>}
                  >
                 <p>{actName}</p>
-                <p>{cityName}</p>
+                <p>{address}</p>
                 <Moment format="YYYY/MM/DD">
                 {startTime}
                 </Moment>~
