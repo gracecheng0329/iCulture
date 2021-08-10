@@ -1,21 +1,22 @@
 import React, {useEffect, useState} from 'react'
-// @ts-ignore
-import { Button , Input} from 'antd';
+import { Button , Input, Space} from 'antd';
 import {useEventContext} from "../../../Context/EventContext";
 import {getEventDetails} from "../../../Service/EventService";
 
 const { Search } = Input;
 
-function Filter () {
-    const { data, setData , viewFilter , setViewFilter } = useEventContext()
 
-    // buttons display
+function Filter () {
+    const { data, setViewFilter } = useEventContext()
+    const [sortType , setSortType ] = useState<boolean>(true)
+
     let newData = [...data]
         newData.map((item:any)=>{
             return item.cityName = item.cityName.substring(0,3)
         })
-        const set = new Set()
-        let result = newData.filter((item:any)=>!set.has(item.cityName)?set.add(item.cityName):false)
+    const set = new Set()
+    let result = newData.filter((item:any)=>!set.has(item.cityName)?set.add(item.cityName):false)
+    result.sort((a:any, b:any) => a.cityName.localeCompare(b.cityName))
 
     const choose = (city:string) =>{
         let filterArea = newData.filter((item:any)=>{
@@ -24,30 +25,53 @@ function Filter () {
         })
         setViewFilter(filterArea)
     }
-    const compareNumbers = (a:number, b:number):any => {
-        return a - b
-    }
 
-    const sort = () =>{
-        data.map((item:any)=>{
-            const stime = Date.parse(item.startTime)
+
+
+    useEffect(()=>{
+        const sortItems = () => {
+            if (sortType) {
+                newData.sort(function (a: any, b: any) {
+                    // @ts-ignore
+                    return new Date(a.endTime) - new Date(b.endTime)
+                })
+                setViewFilter(newData)
+            } else {
+                newData.sort(function (a: any, b: any) {
+                    // @ts-ignore
+                    return new Date(b.endTime) - new Date(a.endTime)
+                })
+                setViewFilter(newData)
+            }
+        }
+        sortItems()
+    },[sortType])
+
+
+    const onSearch = (value:string) => {
+        const newItems = data.filter((item:any) => {
+            return item.actName.includes(value)
         })
+        setViewFilter(newItems)
+    };
 
-        // data.sort(compareNumbers(data.))
-    }
-    const onSearch = (value:string) => console.log(value);
 
     return (
         <>
-            <Search
-                placeholder="input search text"
-                allowClear
-                enterButton="Search"
-                size="large"
-                onSearch={onSearch}
-            />
-            <div className="container">
+            <div className="search">
+                <Search
+                    placeholder="找活動"
+                    allowClear
+                    enterButton="Search"
+                    size="large"
+                    onSearch={onSearch}
+                />
 
+            </div>
+
+            <div className="container">
+                <p>地區</p>
+                <Space size='small' wrap>
                 <Button onClick={()=>{getEventDetails().then((item:any)=>{
                     setViewFilter(item)
                 })}}>全部</Button>
@@ -57,9 +81,13 @@ function Filter () {
                                 onClick={()=>{choose(item.cityName)}}>{item.cityName}</Button>
                     )
                 })}
+                </Space>
             </div>
+            <div className="search">
+
             <p>時間排序</p>
-            <Button>由近到遠</Button>
+            <Button onClick={()=>{setSortType(!sortType)}}>截止日期排序</Button>
+            </div>
 
         </>
     )

@@ -2,6 +2,7 @@ import React from 'react'
 import {Card} from 'antd'
 import Moment from 'react-moment';
 import {Link} from 'react-router-dom'
+
 function EventItem (props:any) {
     const {item} = props
     const {actName,address,startTime,endTime,imageUrl} = item
@@ -13,7 +14,7 @@ function EventItem (props:any) {
                     style={{ width: 350 , margin:'1rem'}}
                     cover={<img alt="example" src={`https://cloud.culture.tw${imageUrl}`} className='img'/>}
                  >
-                <p>{actName}</p>
+                <p className='title'>{actName}</p>
                 <p>{address}</p>
                 <Moment format="YYYY/MM/DD">
                 {startTime}
