@@ -3,9 +3,10 @@ import { Card } from 'antd'
 import Moment from 'react-moment'
 import { Link } from 'react-router-dom'
 
-function EventItem(props: any) {
+function EventItem (props: any) {
   const { item } = props
   const { actName, address, startTime, endTime, imageUrl, actId } = item
+
   return (
     <>
       <Link to={`details/${actId}`}>

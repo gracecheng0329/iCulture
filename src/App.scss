@@ -1,17 +1,19 @@
+$margin: 2rem;
+$imgWidth: 100%;
 
 .search{
   width: 25%;
-  margin: 2rem;
-
+  margin: $margin;
 }
 .container {
-  margin: 2rem;
-
+  margin: $margin;
 }
+
 .img{
-  width: 100%;
+  width: $imgWidth;
   height: 200px;
 }
+
 .title{
   font-size: 1.5rem;
   display : inline-block;
@@ -21,14 +23,17 @@
   width : 300px;
   margin-bottom: .5rem;
 }
+
 .heading{
   text-align: center;
   font-size: 3rem;
 }
+
 .detailImg{
-  width: 100%;
+  width: $imgWidth;
   margin-bottom: 2rem;
 }
+
 .wrap{
   background-color: lightgrey;
   margin: auto ;

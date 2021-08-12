@@ -1,12 +1,12 @@
-import React, {useCallback, useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { getEventDetails } from '../../Service/EventService'
 import { useEventContext } from '../../Context/EventContext'
 import EventItem from './components/EventItem'
 import Filter from './components/Filter'
 import { Space } from 'antd'
 
-function Events() {
-  const { setData, viewFilter, setViewFilter, data } = useEventContext()
+function Events () {
+  const { setData, viewFilter, setViewFilter } = useEventContext()
 
   useEffect(() => {
       getEventDetails().then((item: any) => {
@@ -26,7 +26,9 @@ function Events() {
           })}
         </Space>
       </div>
+        {console.log('123')}
     </>
   )
 }
+
 export default Events
