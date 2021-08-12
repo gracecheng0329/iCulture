@@ -17,6 +17,6 @@ Technologies
   - React Context API
   - React Router
 - Third-party API
-  - [文化部] (https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindFestivalTypeJ)
+  - [文化部](https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindFestivalTypeJ)
 - Other
   - Version Control : Git / GitHub 
