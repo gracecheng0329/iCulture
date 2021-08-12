@@ -26,7 +26,6 @@ function Events () {
           })}
         </Space>
       </div>
-        {console.log('123')}
     </>
   )
 }
