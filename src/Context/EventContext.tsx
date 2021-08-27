@@ -5,6 +5,12 @@ type Event = {
   setData: (c: any) => void
   viewFilter: any[]
   setViewFilter: (c: any) => void
+  like:boolean
+  setLike: (c: any) => void
+  fav: any[]
+  setFav: (c: any) => void
+  likeList: any[]
+  setLikeList: (c: any) => void
 }
 
 export const EventContext = createContext<Event>({
@@ -12,6 +18,18 @@ export const EventContext = createContext<Event>({
   setData: () => {/**/},
   viewFilter: [],
   setViewFilter: () => {/**/},
+  like:false,
+  setLike: () => {/**/},
+  fav: [],
+  setFav:() => {/**/},
+  likeList: [],
+  setLikeList:() => {/**/},
+  // data: {},
+  // setData: {} || undefined,
+  // viewFilter: {
+  //   eventDetails: [] || undefined
+  // },
+  // setViewFilter: {} || undefined,
 })
 
 export const useEventContext = () => useContext(EventContext)

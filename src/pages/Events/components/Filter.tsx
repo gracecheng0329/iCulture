@@ -8,8 +8,7 @@ const { Search } = Input
 function Filter():any {
   const { data, setViewFilter } = useEventContext()
   const [sortType, setSortType] = useState<boolean>(true)
-    const newData = [...data]
-
+  const newData = [...data]
         newData.map((item: any) => {
             return (item.cityName = item.cityName.substring(0, 3))
         })
@@ -18,8 +17,6 @@ function Filter():any {
             !set.has(item.cityName) ? set.add(item.cityName) : false
         )
         result.sort((a: any, b: any) => a.cityName.localeCompare(b.cityName))
-
-
 
   const choose = (city: string) => {
     const filterArea = newData.filter((item: any) => {
@@ -33,13 +30,13 @@ function Filter():any {
       if (sortType) {
         newData.sort(function (a: any, b: any) {
 
-          return new Date(a.endTime).valueOf()  - new Date(b.endTime).valueOf() 
+          return new Date(a.endTime).valueOf()  - new Date(b.endTime).valueOf()
         })
         setViewFilter(newData)
       } else {
         newData.sort(function (a: any, b: any) {
 
-          return new Date(b.endTime).valueOf()  - new Date(a.endTime).valueOf() 
+          return new Date(b.endTime).valueOf()  - new Date(a.endTime).valueOf()
         })
         setViewFilter(newData)
       }
@@ -66,7 +63,7 @@ function Filter():any {
             />
         </div>
         <div className='container'>
-            <p>地區</p>
+            <p>地區篩選</p>
             <Space size='small' wrap>
                 <Button
                     onClick={() => {

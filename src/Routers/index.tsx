@@ -1,12 +1,12 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import Events from '../pages/Events/index'
 import Details from '../pages/Details'
+import Fav from '../pages/Fav'
 
 function Routers() {
   return (
     <>
-      <Router>
         <Switch>
           <Route path='/' exact>
             <Events />
@@ -14,8 +14,10 @@ function Routers() {
           <Route path='/details/:actId'>
             <Details />
           </Route>
+          <Route path='/fav' exact>
+            <Fav />
+          </Route>
         </Switch>
-      </Router>
     </>
   )
 }
