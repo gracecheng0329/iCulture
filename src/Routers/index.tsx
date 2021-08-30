@@ -8,7 +8,7 @@ function Routers() {
   return (
     <>
         <Switch>
-          <Route path='/' exact>
+          <Route path='/iCulture' exact>
             <Events />
           </Route>
           <Route path='/details/:actId'>

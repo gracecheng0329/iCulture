@@ -2,6 +2,7 @@
   "name": "iculture",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://gracecheng0329.github.io/iCulture",
   "dependencies": {
     "@antv/data-set": "^0.11.8",
     "@testing-library/jest-dom": "^5.11.4",

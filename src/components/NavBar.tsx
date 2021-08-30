@@ -17,7 +17,7 @@ const NavBar = () => {
         return (
             <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal" style={{display:'flex',justifyContent:'center'}}>
                 <Menu.Item key="mail" >
-                    <Link to='/'>台灣節慶專區</Link>
+                    <Link to='/iCulture'>台灣節慶專區</Link>
                 </Menu.Item>
                 <Menu.Item key="app">
                     <Link to='/fav'>我的最愛</Link>
